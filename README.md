@@ -11,3 +11,10 @@ let separator = someView.addSeparator(at: .left, color: UIColor.green)
 // If you don't need a reference to a separator
 _ = someView.addSeparator(at: .bottom, color: UIColor.red)
 ```
+
+# Requirements
+- Xcode 8.0 and later
+- Swift 3.0 and later
+
+# Installation
+Add UIView+Separator.swift to your project.
