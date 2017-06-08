@@ -8,7 +8,8 @@ extension UIView {
 		case left
 		case right
 	}
-	
+
+	@discardableResult
 	func addSeparator(at position: SeparatorPosition, color: UIColor, weight: CGFloat = 1.0 / UIScreen.main.scale) -> UIView {
 		let view = UIView()
 		view.backgroundColor = color
