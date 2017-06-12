@@ -1,5 +1,5 @@
 # Overview
-To add a separator line to a view is a tiresome work. UIView-Separator is an extension of UIView to add a separator line as a subview with one line of code. The default line weight is 1px.
+To add a separator line to a view is a tiresome work. UIView-Separator is a Swift extension of UIView to add a separator line as a subview with one line of code. The default line weight is 1px.
 
 # Example
 ```
@@ -11,8 +11,8 @@ someView.addSeparator(at: .bottom, color: UIColor.red, weight: 3.0)
 ```
 
 # Requirements
-- Xcode 8.0 and later
-- Swift 3.0 and later
+* Xcode 8.0 and later
+* Swift 3.0 and later
 
 # Installation
 Add UIView+Separator.swift to your project.
