@@ -4,15 +4,16 @@ To add a separator line to a view is a tiresome work. UIView-Separator is a Swif
 # Example
 ```
 // Add a 1px separator in green color to the left side of someView
-someView.addSeparator(at: .left, color: UIColor.green)
+someView.addSeparator(at: .left, color: .green)
 
 // Add a 3pt separator in red color to the bottom side of someView
-someView.addSeparator(at: .bottom, color: UIColor.red, weight: 3.0)
+someView.addSeparator(at: .bottom, color: .red, weight: 3.0)
 ```
 
 # Requirements
-* Xcode 8.0 and later
-* Swift 3.0 and later
+* iOS 9.0+
+* Swift 4.0+
+* Xcode 9.0+
 
 # Installation
 Add UIView+Separator.swift to your project.
