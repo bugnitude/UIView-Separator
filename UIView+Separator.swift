@@ -10,31 +10,38 @@ extension UIView {
 	}
 
 	@discardableResult
-	func addSeparator(at position: SeparatorPosition, color: UIColor, weight: CGFloat = 1.0 / UIScreen.main.scale) -> UIView {
+	func addSeparator(at position: SeparatorPosition, color: UIColor, weight: CGFloat = 1.0 / UIScreen.main.scale, insets: UIEdgeInsets = .zero) -> UIView {
 		let view = UIView()
 		view.backgroundColor = color
 		view.translatesAutoresizingMaskIntoConstraints = false
 		self.addSubview(view)
 		
-		var constraints = [NSLayoutConstraint]()
-		let views = ["view": view]
-		let metrics = ["weight": weight]
 		switch position {
 		case .top:
-			constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: [], metrics: nil, views: views))
-			constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:|[view(weight)]", options: [], metrics: metrics, views: views))
+			view.topAnchor.constraint(equalTo: self.topAnchor, constant: insets.top).isActive = true
+			view.leftAnchor.constraint(equalTo: self.leftAnchor, constant: insets.left).isActive = true
+			view.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -insets.right).isActive = true
+			view.heightAnchor.constraint(equalToConstant: weight).isActive = true
+			
 		case .bottom:
-			constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: [], metrics: nil, views: views))
-			constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:[view(weight)]|", options: [], metrics: metrics, views: views))
+			view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -insets.bottom).isActive = true
+			view.leftAnchor.constraint(equalTo: self.leftAnchor, constant: insets.left).isActive = true
+			view.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -insets.right).isActive = true
+			view.heightAnchor.constraint(equalToConstant: weight).isActive = true
+			
 		case .left:
-			constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:|[view(weight)]", options: [], metrics: metrics, views: views))
-			constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: [], metrics: nil, views: views))
+			view.topAnchor.constraint(equalTo: self.topAnchor, constant: insets.top).isActive = true
+			view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -insets.bottom).isActive = true
+			view.leftAnchor.constraint(equalTo: self.leftAnchor, constant: insets.left).isActive = true
+			view.widthAnchor.constraint(equalToConstant: weight).isActive = true
+			
 		case .right:
-			constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "H:[view(weight)]|", options: [], metrics: metrics, views: views))
-			constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: [], metrics: nil, views: views))
+			view.topAnchor.constraint(equalTo: self.topAnchor, constant: insets.top).isActive = true
+			view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -insets.bottom).isActive = true
+			view.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -insets.right).isActive = true
+			view.widthAnchor.constraint(equalToConstant: weight).isActive = true
 		}
-		NSLayoutConstraint.activate(constraints)
-
+		
 		return view
 	}
 	
